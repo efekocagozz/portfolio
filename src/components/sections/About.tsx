@@ -1,0 +1,117 @@
+"use client";
+
+import FadeInView from "@/components/animations/FadeInView";
+import { SECTION_IDS } from "@/lib/utils";
+
+const interests = [
+  "Backend Engineering",
+  "Data Engineering",
+  "Database Design",
+  "Algorithmic Trading",
+  "API Design",
+  "Music Production",
+];
+
+const stats = [
+  { value: "5+", label: "Projects" },
+  { value: "2+", label: "Years coding" },
+  { value: "12+", label: "Technologies" },
+];
+
+export default function About() {
+  return (
+    <section
+      id={SECTION_IDS.about}
+      className="section-padding max-w-[1200px] mx-auto"
+      aria-label="About me"
+    >
+      {/* Section label row */}
+      <FadeInView className="flex items-center gap-4 mb-12">
+        <span className="section-label">01 — About</span>
+        <div className="flex-1 h-px bg-white/[0.07]" aria-hidden="true" />
+      </FadeInView>
+
+      <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-12 lg:gap-20">
+        {/* Left — bio */}
+        <div>
+          <FadeInView>
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 tracking-tight">
+              Who I Am
+            </h2>
+          </FadeInView>
+
+          <div className="space-y-4">
+            <FadeInView delay={0.05}>
+              <p className="text-zinc-400 leading-relaxed text-sm">
+                I&apos;m currently pursuing my IT degree at inHolland University
+                of Applied Sciences in Haarlem, Netherlands. I focus on building
+                software that solves real problems — whether that&apos;s a banking
+                system, a ticket management platform, or a trading tool.
+              </p>
+            </FadeInView>
+
+            <FadeInView delay={0.1}>
+              <p className="text-zinc-400 leading-relaxed text-sm">
+                I&apos;m passionate about data processing and backend engineering —
+                designing clean database schemas, building reliable APIs, and
+                understanding how data flows through complex systems. Outside of
+                school projects, I explore algorithmic trading and crypto tools.
+              </p>
+            </FadeInView>
+
+            <FadeInView delay={0.15}>
+              <p className="text-zinc-400 leading-relaxed text-sm">
+                Away from the keyboard, I&apos;ve been into music production and
+                DJ&apos;ing at venues since my teenage years — a creative place
+                that keeps me sharp on the details.
+              </p>
+            </FadeInView>
+          </div>
+
+          {/* Inline stats */}
+          <FadeInView delay={0.2} className="mt-10 flex items-center gap-8 border-t border-white/[0.07] pt-6">
+            {stats.map((s, i) => (
+              <div key={s.label}>
+                <p className="text-white font-bold text-lg">{s.value}</p>
+                <p className="section-label mt-0.5">{s.label}</p>
+                {i < stats.length - 1 && (
+                  <span className="sr-only">/</span>
+                )}
+              </div>
+            ))}
+          </FadeInView>
+        </div>
+
+        {/* Right — interests */}
+        <FadeInView direction="left" delay={0.1}>
+          <div>
+            <p className="section-label mb-5">Areas of focus</p>
+            <ul className="divide-y divide-white/[0.06]">
+              {interests.map((interest) => (
+                <li
+                  key={interest}
+                  className="py-3 text-sm text-zinc-300 flex items-center justify-between group hover:text-white transition-colors duration-150"
+                >
+                  {interest}
+                  <span className="text-zinc-700 group-hover:text-zinc-400 transition-colors duration-150 text-xs" aria-hidden="true">
+                    →
+                  </span>
+                </li>
+              ))}
+            </ul>
+
+            {/* Career goal */}
+            <div className="mt-8 pt-6 border-t border-white/[0.07]">
+              <p className="section-label mb-3">Education</p>
+              <p className="text-xs text-zinc-500 leading-relaxed">
+                inHolland University of Applied Sciences<br />
+                BSc Information Technology — Haarlem, NL<br />
+                2023 — Present
+              </p>
+            </div>
+          </div>
+        </FadeInView>
+      </div>
+    </section>
+  );
+}

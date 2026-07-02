@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #09090b;
+  --foreground: #fafafa;
+  --muted: #71717a;
+  --border: rgba(255, 255, 255, 0.08);
+  --surface: #111113;
+}
+
+* { box-sizing: border-box; padding: 0; margin: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--background); }
+::-webkit-scrollbar-thumb { background: #27272a; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+
+::selection { background: rgba(255, 255, 255, 0.15); color: #fff; }
+
+*:focus-visible {
+  outline: 1px solid rgba(255, 255, 255, 0.4);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* Section label — monospaced, uppercase, zinc-500 */
+.section-label {
+  font-family: var(--font-geist-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #71717a;
+  line-height: 1;
+}
+
+/* Hairline rule */
+.rule {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Clip-path text reveal utilities */
+.clip-hidden { clip-path: inset(0 0 100% 0); }
+.clip-visible { clip-path: inset(0 0 0% 0); transition: clip-path 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+
+/* Section padding — consistent vertical rhythm */
+.section-padding { @apply py-24 px-6 md:px-12 lg:px-20; }
