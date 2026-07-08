@@ -7,7 +7,7 @@ export const projects: Project[] = [
     description: "Full-stack banking application with account management and transaction processing.",
     longDescription:
       "A collaborative school project building a full-stack banking application. Covers core banking features including account creation, balance tracking, and transaction history — with a structured backend and relational database design.",
-    tech: ["Java", "Spring Boot", "PostgreSQL", "REST APIs", "JPA/Hibernate"],
+    tech: ["Java", "Spring Boot", "H2", "REST APIs", "JPA/Hibernate"],
     github: "https://github.com/RashidIsmayilzada/Banking-App",
     gradient: "from-indigo-600 via-indigo-500 to-violet-500",
     status: "production",
