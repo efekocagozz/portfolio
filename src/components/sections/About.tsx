@@ -9,7 +9,6 @@ const interests = [
   "Database Design",
   "Algorithmic Trading",
   "API Design",
-  "Music Production",
 ];
 
 const stats = [
@@ -106,7 +105,7 @@ export default function About() {
               <p className="text-xs text-zinc-500 leading-relaxed">
                 inHolland University of Applied Sciences<br />
                 BSc Information Technology — Haarlem, NL<br />
-                2023 — Present
+                2024 — Present
               </p>
             </div>
           </div>

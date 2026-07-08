@@ -47,11 +47,11 @@ export const projects: Project[] = [
   },
   {
     id: "trading-tools",
-    title: "Algorithmic Trading Tools",
-    description: "Personal suite of crypto trading tools, algorithmic strategies, and smart contracts.",
+    title: "Solana Trading Bots",
+    description: "Trading bots on Solana leveraging flash loans for on-chain arbitrage strategies.",
     longDescription:
-      "An ongoing personal project exploring algorithmic trading and decentralised finance. Includes automated trading strategies, market data pipelines, and experimental smart contracts — built out of genuine interest in how software intersects with financial markets.",
-    tech: ["Python", "Solidity", "TypeScript", "Web3", "APIs"],
+      "A personal project building trading bots on the Solana blockchain that leverage flash loans — borrowing and repaying within a single transaction to execute arbitrage strategies. Built to explore on-chain mechanics, smart contract interactions, and real-time execution on a high-speed chain.",
+    tech: ["Solidity", "TypeScript", "Solana", "Web3", "Flash Loans"],
     github: "https://github.com/efekocagozz",
     gradient: "from-amber-600 via-orange-500 to-red-500",
     status: "wip",
