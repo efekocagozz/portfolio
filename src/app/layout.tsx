@@ -30,6 +30,11 @@ export const metadata: Metadata = {
     "portfolio",
   ],
   authors: [{ name: "Efe Kocagoz" }],
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
+  },
   openGraph: {
     title: "Efe Kocagoz — IT Student & Backend Developer",
     description:
