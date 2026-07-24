@@ -51,12 +51,11 @@ export default function About() {
           </FadeInView>
         </div>
 
-        {/* Right — interests */}
+        {/* Right — Education */}
         <FadeInView direction="left" delay={0.1}>
           <div>
-
-            {/* Career goal */}
-            <div className="mt-8 pt-6 border-t border-white/[0.07]">
+            {/* Education */}
+            <div>
               <p className="section-label mb-3">Education</p>
               <p className="text-xs text-zinc-500 leading-relaxed">
                 inHolland University of Applied Sciences<br />

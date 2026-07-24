@@ -47,9 +47,9 @@ export default function Hero() {
       aria-label="Introduction"
     >
       <div className="w-full max-w-[1280px] mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-8 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-12 lg:gap-16 items-center lg:items-start text-center lg:text-left">
           {/* Left column — label + name */}
-          <div className="pt-2">
+          <div className="pt-2 flex flex-col items-center lg:items-start">
             {/* Role label */}
             <motion.p
               className="section-label mb-6"
@@ -61,12 +61,12 @@ export default function Hero() {
             </motion.p>
 
             {/* Giant headline */}
-            <h1 className="text-[clamp(3.5rem,10vw,7.5rem)] font-bold tracking-tight text-white leading-[0.92]">
+            <h1 className="text-[clamp(2.75rem,8vw,7.5rem)] sm:text-[clamp(3.5rem,10vw,7.5rem)] font-bold tracking-tight text-white leading-[0.92]">
               <WordReveal words={HEADLINE} delay={0.2} />
             </h1>
 
             <motion.p
-              className="mt-6 text-sm text-zinc-400 leading-relaxed max-w-md"
+              className="mt-6 text-sm text-zinc-400 leading-relaxed max-w-md mx-auto lg:mx-0"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
@@ -78,7 +78,7 @@ export default function Hero() {
           {/* Right column — cohesive card */}
           <motion.div
             {...fadeUp(0.5)}
-            className="rounded-2xl border border-white/[0.07] bg-white/[0.02] p-4 flex flex-col gap-4"
+            className="w-full max-w-[320px] mx-auto lg:mx-0 rounded-2xl border border-white/[0.07] bg-white/[0.02] p-4 flex flex-col gap-4"
           >
             {/* Portrait */}
             <div className="relative w-full aspect-[4/5] rounded-xl overflow-hidden">
@@ -109,7 +109,7 @@ export default function Hero() {
             </div>
 
             {/* Availability badge */}
-            <div className="flex items-center gap-2 px-1">
+            <div className="flex items-center justify-center lg:justify-start gap-2 px-1">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" aria-hidden="true" />
               <span className="section-label text-zinc-500">Available for work</span>
             </div>
@@ -117,18 +117,6 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Hairline bottom rule */}
-      <div className="absolute bottom-12 left-6 md:left-12 right-6 md:right-12 h-px bg-white/[0.07]" aria-hidden="true" />
-
-      {/* Scroll indicator */}
-      <motion.div
-        className="absolute bottom-6 left-6 md:left-12"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.4, delay: 1.2 }}
-      >
-        <span className="section-label">Scroll ↓</span>
-      </motion.div>
     </section>
   );
 }
