@@ -3,19 +3,7 @@
 import FadeInView from "@/components/animations/FadeInView";
 import { SECTION_IDS } from "@/lib/utils";
 
-const interests = [
-  "Backend Engineering",
-  "Data Engineering",
-  "Database Design",
-  "Algorithmic Trading",
-  "API Design",
-];
-
-const stats = [
-  { value: "5+", label: "Projects" },
-  { value: "2+", label: "Years coding" },
-  { value: "12+", label: "Technologies" },
-];
+import { aboutMe, stats, interests } from "@/data/about";
 
 export default function About() {
   return (
@@ -40,31 +28,13 @@ export default function About() {
           </FadeInView>
 
           <div className="space-y-4">
-            <FadeInView delay={0.05}>
-              <p className="text-zinc-400 leading-relaxed text-sm">
-                I&apos;m currently pursuing my IT degree at inHolland University
-                of Applied Sciences in Haarlem, Netherlands. I focus on building
-                software that solves real problems — whether that&apos;s a banking
-                system, a ticket management platform, or a trading tool.
-              </p>
-            </FadeInView>
-
-            <FadeInView delay={0.1}>
-              <p className="text-zinc-400 leading-relaxed text-sm">
-                I&apos;m passionate about data processing and backend engineering —
-                designing clean database schemas, building reliable APIs, and
-                understanding how data flows through complex systems. Outside of
-                school projects, I explore algorithmic trading and crypto tools.
-              </p>
-            </FadeInView>
-
-            <FadeInView delay={0.15}>
-              <p className="text-zinc-400 leading-relaxed text-sm">
-                Away from the keyboard, I&apos;ve been into music production and
-                DJ&apos;ing at venues since my teenage years — a creative place
-                that keeps me sharp on the details.
-              </p>
-            </FadeInView>
+            {aboutMe.map((paragraph, idx) => (
+              <FadeInView key={idx} delay={0.05 + idx * 0.05}>
+                <p className="text-zinc-400 leading-relaxed text-sm">
+                  {paragraph}
+                </p>
+              </FadeInView>
+            ))}
           </div>
 
           {/* Inline stats */}
@@ -84,20 +54,6 @@ export default function About() {
         {/* Right — interests */}
         <FadeInView direction="left" delay={0.1}>
           <div>
-            <p className="section-label mb-5">Areas of focus</p>
-            <ul className="divide-y divide-white/[0.06]">
-              {interests.map((interest) => (
-                <li
-                  key={interest}
-                  className="py-3 text-sm text-zinc-300 flex items-center justify-between group hover:text-white transition-colors duration-150"
-                >
-                  {interest}
-                  <span className="text-zinc-700 group-hover:text-zinc-400 transition-colors duration-150 text-xs" aria-hidden="true">
-                    →
-                  </span>
-                </li>
-              ))}
-            </ul>
 
             {/* Career goal */}
             <div className="mt-8 pt-6 border-t border-white/[0.07]">

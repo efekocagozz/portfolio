@@ -1,9 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { SECTION_IDS } from "@/lib/utils";
 
-const HEADLINE = ["Developer in Progress."];
+const HEADLINE = ["Efe", "Kodzhagioz"];
 
 function WordReveal({ words, delay = 0 }: { words: string[]; delay?: number }) {
   return (
@@ -42,56 +43,73 @@ export default function Hero() {
   return (
     <section
       id={SECTION_IDS.hero}
-      className="relative min-h-screen flex flex-col justify-center max-w-[1200px] mx-auto px-6 md:px-12"
+      className="relative min-h-screen flex flex-col justify-center px-6 md:px-12"
       aria-label="Introduction"
     >
-      <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-12 lg:gap-24 items-end pt-20 pb-24">
-        {/* Left column — name + headline */}
-        <div>
-          {/* Name label */}
-          <motion.p
-            className="section-label mb-8"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.4, delay: 0.1 }}
+      <div className="w-full max-w-[1280px] mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-8 lg:gap-16 items-start">
+          {/* Left column — label + name */}
+          <div className="pt-2">
+            {/* Role label */}
+            <motion.p
+              className="section-label mb-6"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.4, delay: 0.1 }}
+            >
+              Information Technology Student
+            </motion.p>
+
+            {/* Giant headline */}
+            <h1 className="text-[clamp(3.5rem,10vw,7.5rem)] font-bold tracking-tight text-white leading-[0.92]">
+              <WordReveal words={HEADLINE} delay={0.2} />
+            </h1>
+
+            <motion.p
+              className="mt-6 text-sm text-zinc-400 leading-relaxed max-w-md"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
+            >
+              Looking for my first opportunity in IT to apply my technical skills, contribute to real-world projects, and continue learning from experienced professionals.
+            </motion.p>
+          </div>
+
+          {/* Right column — cohesive card */}
+          <motion.div
+            {...fadeUp(0.5)}
+            className="rounded-2xl border border-white/[0.07] bg-white/[0.02] p-4 flex flex-col gap-4"
           >
-            Efe Kodzhagioz — IT Student
-          </motion.p>
+            {/* Portrait */}
+            <div className="relative w-full aspect-[4/5] rounded-xl overflow-hidden">
+              <Image
+                src="/portfolio.jpeg"
+                alt="Efe Kodzhagioz"
+                fill
+                className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                priority
+              />
+            </div>
 
-          {/* Giant headline with word reveal */}
-          <h1 className="text-[clamp(3.5rem,10vw,7.5rem)] font-bold tracking-tight text-white leading-[0.92] mb-0">
-            <WordReveal words={HEADLINE} delay={0.2} />
-          </h1>
-        </div>
+            {/* CTA buttons */}
+            <div className="flex flex-col gap-2">
+              <button
+                onClick={() => scrollTo(SECTION_IDS.projects)}
+                className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-white text-zinc-950 text-xs font-semibold hover:bg-zinc-100 transition-colors duration-200"
+              >
+                View Projects
+                <span aria-hidden="true">→</span>
+              </button>
+              <button
+                onClick={() => scrollTo(SECTION_IDS.contact)}
+                className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg border border-white/20 text-zinc-300 text-xs font-medium hover:text-white hover:border-white/40 transition-all duration-200"
+              >
+                Get in Touch
+              </button>
+            </div>
 
-        {/* Right column — role, description, CTAs */}
-        <div className="flex flex-col gap-6 lg:pb-2">
-          <motion.div {...fadeUp(0.55)} className="space-y-3">
-            <p className="text-sm text-zinc-300 leading-relaxed">
-              IT student at inHolland University focused on data engineering
-              and backend development. I build APIs, databases, and systems
-              that are clean, reliable, and built to last.
-            </p>
-          </motion.div>
-
-          <motion.div {...fadeUp(0.65)} className="flex flex-col sm:flex-row lg:flex-col gap-2">
-            <button
-              onClick={() => scrollTo(SECTION_IDS.projects)}
-              className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded bg-white text-zinc-950 text-xs font-semibold hover:bg-zinc-100 transition-colors duration-200"
-            >
-              View Projects
-              <span aria-hidden="true">→</span>
-            </button>
-            <button
-              onClick={() => scrollTo(SECTION_IDS.contact)}
-              className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded border border-white/20 text-zinc-300 text-xs font-medium hover:text-white hover:border-white/40 transition-all duration-200"
-            >
-              Get in Touch
-            </button>
-          </motion.div>
-
-          <motion.div {...fadeUp(0.75)}>
-            <div className="flex items-center gap-2">
+            {/* Availability badge */}
+            <div className="flex items-center gap-2 px-1">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" aria-hidden="true" />
               <span className="section-label text-zinc-500">Available for work</span>
             </div>
