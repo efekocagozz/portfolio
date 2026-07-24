@@ -3,7 +3,7 @@
 import FadeInView from "@/components/animations/FadeInView";
 import { SECTION_IDS } from "@/lib/utils";
 
-import { aboutMe, stats, interests } from "@/data/about";
+import { aboutMe, stats } from "@/data/about";
 
 export default function About() {
   return (
