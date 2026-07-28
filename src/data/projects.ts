@@ -57,19 +57,15 @@ export const projects: Project[] = [
     title: "Incident Management System (Team Project)",
     description: "An incident management system for tracking and managing support tickets, built with ASP.NET Core 8 and MongoDB.",
     longDescription:
-      "Collaborated in a team to develop an incident management system for tracking and managing support tickets. Built the application using ASP.NET Core following the MVC architectural pattern. Integrated MongoDB Atlas using the official MongoDB .NET Driver for persistent data storage. . Developed ticket management features including CRUD operations, priority levels, filtering, and dashboard statistics. Integrated Swagger/OpenAPI documentation for API testing and development. ",
+      "Collaborated in a team to develop an incident management system for tracking and managing support tickets. Built the application using ASP.NET Core following the MVC architectural pattern. Integrated MongoDB Atlas using the official MongoDB .NET Driver for persistent data storage. . Developed ticket management features including CRUD operations, priority levels, filtering, and dashboard statistics.",
     tech: [
       "C#",
       "ASP.NET Core",
       "MongoDB Atlas",
       "Razor Views",
       "MVC",
-      "Repository Pattern",
-      "Service Layer",
       "BCrypt",
       "Cookie Authentication",
-      "Swagger",
-      "SMTP"
     ],
     github: "https://github.com/DarlingtonJones24/NOSQLDatabaseProject",
     gradient: "from-violet-600 via-purple-500 to-fuchsia-500",
