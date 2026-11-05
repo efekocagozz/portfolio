@@ -85,7 +85,7 @@ export default function Hero() {
             {/* Portrait */}
             <div className="relative w-full aspect-[4/5] rounded-xl overflow-hidden">
               <Image
-                src="/portfolio.jpeg"
+                src="/efe-profile.jpg"
                 alt="Efe Kodzhagioz"
                 fill
                 className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
