@@ -15,37 +15,41 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Efe Kocagoz — IT Student & Backend Developer",
+  title: "Efe Kodzhagioz — Software Engineering Student",
   description:
-    "IT student at inHolland University focused on data engineering and backend development. Building APIs, databases, and systems in Java, Spring Boot, SQL, and MongoDB.",
+    "IT student at Inholland University of Applied Sciences focused on software engineering. Building REST APIs and full-stack applications with Java, Spring Boot, C#, ASP.NET Core, Vue.js and SQL. Open to software engineering internships.",
   keywords: [
+    "software engineer",
     "backend developer",
     "Java",
     "Spring Boot",
     "SQL",
     "MongoDB",
-    "data engineering",
+    "C#",
+    "ASP.NET Core",
+    "software engineering",
+    "internship",
     "IT student",
     "Netherlands",
     "portfolio",
   ],
-  authors: [{ name: "Efe Kocagoz" }],
+  authors: [{ name: "Efe Kodzhagioz" }],
   icons: {
     icon: "/favicon.png",
     shortcut: "/favicon.png",
     apple: "/favicon.png",
   },
   openGraph: {
-    title: "Efe Kocagoz — IT Student & Backend Developer",
+    title: "Efe Kodzhagioz — Software Engineering Student",
     description:
-      "IT student at inHolland University focused on data engineering and backend development.",
+      "IT student at Inholland focused on software engineering. Open to internships.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Efe Kocagoz — IT Student & Backend Developer",
+    title: "Efe Kodzhagioz — Software Engineering Student",
     description:
-      "IT student at inHolland University focused on data engineering and backend development.",
+      "IT student at Inholland focused on software engineering. Open to internships.",
   },
 };
 

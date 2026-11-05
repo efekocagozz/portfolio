@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { SECTION_IDS } from "@/lib/utils";
+import { SECTION_IDS, CV_PATH } from "@/lib/utils";
 import type { NavItem } from "@/types";
 
 const navItems: NavItem[] = [
@@ -96,7 +96,15 @@ export default function Navbar() {
         </ul>
 
         {/* Desktop CTA */}
-        <div className="hidden md:block">
+        <div className="hidden md:flex items-center gap-4">
+          <a
+            href={CV_PATH}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs font-medium text-zinc-500 hover:text-zinc-200 transition-colors duration-200"
+          >
+            CV ↓
+          </a>
           <a
             href="#contact"
             onClick={(e) => { e.preventDefault(); handleNav("#contact"); }}
@@ -153,6 +161,16 @@ export default function Navbar() {
                   </a>
                 </li>
               ))}
+              <li>
+                <a
+                  href={CV_PATH}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block py-2 text-sm text-zinc-400 hover:text-white transition-colors"
+                >
+                  Download CV ↓
+                </a>
+              </li>
               <li className="pt-3 border-t border-white/[0.06]">
                 <a
                   href="#contact"

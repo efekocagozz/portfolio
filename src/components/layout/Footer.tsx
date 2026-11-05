@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="border-t border-white/[0.06] py-8 px-6 md:px-12">
       <div className="max-w-[1200px] mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
         <p className="font-mono text-xs text-zinc-600">
-          © {year} Efe Kocagoz — Built with Next.js &amp; Framer Motion.
+          © {year} Efe Kodzhagioz — Built with Next.js &amp; Framer Motion.
         </p>
         <div className="flex items-center gap-6">
           {[

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { SECTION_IDS } from "@/lib/utils";
+import { SECTION_IDS, CV_PATH } from "@/lib/utils";
 
 const HEADLINE = ["Efe", "Kodzhagioz"];
 
@@ -43,7 +43,7 @@ export default function Hero() {
   return (
     <section
       id={SECTION_IDS.hero}
-      className="relative min-h-screen flex flex-col justify-center px-6 md:px-12"
+      className="relative min-h-screen flex flex-col justify-center px-6 md:px-12 pt-28 pb-16 lg:py-0"
       aria-label="Introduction"
     >
       <div className="w-full max-w-[1280px] mx-auto">
@@ -57,7 +57,7 @@ export default function Hero() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.4, delay: 0.1 }}
             >
-              Information Technology Student
+              Software Engineering Student · Inholland
             </motion.p>
 
             {/* Giant headline */}
@@ -71,14 +71,16 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
             >
-              Looking for my first opportunity in IT to apply my technical skills, contribute to real-world projects, and continue learning from experienced professionals.
+              I build backend-focused web applications with Java &amp; Spring Boot and
+              C# &amp; ASP.NET Core: REST APIs, authentication, data models and tests.
+              Currently looking for a software engineering internship.
             </motion.p>
           </div>
 
           {/* Right column — cohesive card */}
           <motion.div
             {...fadeUp(0.5)}
-            className="w-full max-w-[320px] mx-auto lg:mx-0 rounded-2xl border border-white/[0.07] bg-white/[0.02] p-4 flex flex-col gap-4"
+            className="w-full max-w-[280px] sm:max-w-[320px] mx-auto lg:mx-0 rounded-2xl border border-white/[0.07] bg-white/[0.02] p-4 flex flex-col gap-4"
           >
             {/* Portrait */}
             <div className="relative w-full aspect-[4/5] rounded-xl overflow-hidden">
@@ -100,18 +102,29 @@ export default function Hero() {
                 View Projects
                 <span aria-hidden="true">→</span>
               </button>
-              <button
-                onClick={() => scrollTo(SECTION_IDS.contact)}
-                className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg border border-white/20 text-zinc-300 text-xs font-medium hover:text-white hover:border-white/40 transition-all duration-200"
-              >
-                Get in Touch
-              </button>
+              <div className="grid grid-cols-2 gap-2">
+                <a
+                  href={CV_PATH}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-lg border border-white/20 text-zinc-300 text-xs font-medium hover:text-white hover:border-white/40 transition-all duration-200"
+                >
+                  Download CV
+                  <span aria-hidden="true">↓</span>
+                </a>
+                <button
+                  onClick={() => scrollTo(SECTION_IDS.contact)}
+                  className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg border border-white/20 text-zinc-300 text-xs font-medium hover:text-white hover:border-white/40 transition-all duration-200"
+                >
+                  Get in Touch
+                </button>
+              </div>
             </div>
 
             {/* Availability badge */}
             <div className="flex items-center justify-center lg:justify-start gap-2 px-1">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" aria-hidden="true" />
-              <span className="section-label text-zinc-500">Available for work</span>
+              <span className="section-label text-zinc-500">Open to internships</span>
             </div>
           </motion.div>
         </div>

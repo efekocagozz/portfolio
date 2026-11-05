@@ -7,6 +7,7 @@
     "dev": "next dev",
     "start": "next start",
     "lint": "next lint",
+    "cv": "node scripts/build-cv.cjs",
     "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
     "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
     "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
