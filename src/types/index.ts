@@ -11,8 +11,9 @@ export interface SkillCategory {
 export interface Project {
   id: string;
   title: string;
+  kind: "team" | "personal";
   description: string;
-  longDescription: string;
+  highlights: string[];
   tech: string[];
   github: string;
   live?: string;

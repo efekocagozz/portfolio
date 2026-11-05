@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import FadeInView from "@/components/animations/FadeInView";
 import { SECTION_IDS } from "@/lib/utils";
 
-type Status = "idle" | "loading" | "success";
+type Status = "idle" | "loading" | "success" | "error";
 
 const socials = [
   { label: "GitHub", href: "https://github.com/efekocagozz", meta: "github.com/efekocagozz" },
@@ -34,12 +34,10 @@ export default function Contact() {
         setForm({ name: "", email: "", message: "" });
         setTimeout(() => setStatus("idle"), 5000);
       } else {
-        setStatus("idle");
-        alert("Something went wrong. Please email me directly at kocagozefe@gmail.com");
+        setStatus("error");
       }
     } catch {
-      setStatus("idle");
-      alert("Something went wrong. Please email me directly at kocagozefe@gmail.com");
+      setStatus("error");
     }
   };
 
@@ -65,9 +63,9 @@ export default function Contact() {
             Let&apos;s Work Together
           </h2>
           <p className="text-sm text-zinc-400 leading-relaxed mb-10 max-w-sm">
-            Open to internships, junior backend roles, and interesting
-            collaborations. Based in Haarlem, Netherlands — happy to work
-            remotely or on-site.
+            Looking for a software engineering internship. Based in the
+            Netherlands, studying in Haarlem, and open to on-site, hybrid or
+            remote roles. The quickest way to reach me is by email.
           </p>
 
           {/* Social links */}
@@ -98,8 +96,8 @@ export default function Contact() {
 
         {/* Right — form */}
         <FadeInView direction="left" delay={0.1}>
-          <form onSubmit={onSubmit} className="space-y-6" noValidate>
-            <div className="grid grid-cols-2 gap-6">
+          <form onSubmit={onSubmit} className="space-y-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div>
                 <label htmlFor="name" className="section-label block mb-2">Name</label>
                 <input
@@ -133,11 +131,20 @@ export default function Contact() {
             <div className="flex items-center gap-4">
               <button
                 type="submit"
-                disabled={status !== "idle"}
+                disabled={status === "loading" || status === "success"}
                 className="px-5 py-2.5 rounded bg-white text-zinc-950 text-xs font-semibold hover:bg-zinc-100 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {status === "loading" ? "Sending..." : status === "success" ? "✓ Sent" : "Send Message"}
               </button>
+
+              {status === "error" && (
+                <p className="text-xs text-red-400" role="alert">
+                  Something went wrong. Please email me at{" "}
+                  <a href="mailto:kocagozefe@gmail.com" className="underline">
+                    kocagozefe@gmail.com
+                  </a>
+                </p>
+              )}
 
               {status === "success" && (
                 <motion.p

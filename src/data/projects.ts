@@ -3,10 +3,17 @@ import type { Project } from "@/types";
 export const projects: Project[] = [
   {
     id: "banking-app",
-    title: "Banking Application (Team Project)",
-    description: "Full-stack banking application with a Spring Boot backend, Vue.js frontend, and JWT authentication.",
-    longDescription:
-      "Collaborated in a team of four to develop a full-stack banking application with a Spring Boot backend and Vue.js frontend. Designed and implemented RESTful APIs for admin panel. Implemented authentication and role-based authorization using Spring Security and JSON Web Tokens (JWT)s. Documented and tested API endpoints using OpenAPI (Swagger UI). Wrote unit and functional tests using. Collaborated using Git and GitHub in an agile team environment.",
+    title: "Banking Application",
+    kind: "team",
+    description:
+      "Full-stack banking application with a Spring Boot REST API, Vue.js frontend and JWT-based security.",
+    highlights: [
+      "Built in a team of four using Scrum, Git and GitHub pull requests",
+      "Designed and implemented the REST endpoints behind the admin panel",
+      "Implemented authentication and role-based authorization with Spring Security and JWT",
+      "Added API rate limiting with Bucket4j and documented endpoints with OpenAPI / Swagger UI",
+      "Wrote unit and functional tests with JUnit, Mockito and AssertJ; containerised with Docker",
+    ],
     tech: [
       "Java 21",
       "Spring Boot",
@@ -23,7 +30,7 @@ export const projects: Project[] = [
       "Bucket4j",
       "JUnit",
       "Mockito",
-      "AssertJ"
+      "AssertJ",
     ],
     github: "https://github.com/RashidIsmayilzada/Banking-App",
     gradient: "from-indigo-600 via-indigo-500 to-violet-500",
@@ -31,10 +38,16 @@ export const projects: Project[] = [
   },
   {
     id: "sportsmeet",
-    title: "SportsMeet (Personal Academic Project)",
-    description: "A web application that allows users to create and join local sports events.",
-    longDescription:
-      "Designed and developed a web application that allows users to create and join sports events in their city. Frontend uses Vue 3, Vite, Pinia, Vue Router, Axios, and Tailwind CSS. Developed a custom PHP REST API. Implemented JWT-based authentication and authorization. Designed and integrated an SQLite database for persistent data storage. Containerized both the frontend and backend using Docker.",
+    title: "SportsMeet",
+    kind: "personal",
+    description:
+      "Web application for creating and joining local sports events, with a custom PHP REST API and Vue 3 frontend.",
+    highlights: [
+      "Designed and built the full stack on my own, from database schema to UI",
+      "Wrote a custom PHP REST API with JWT authentication and authorization",
+      "Built the frontend with Vue 3, Pinia, Vue Router and Tailwind CSS, with components documented in Storybook",
+      "Modelled persistent storage in SQLite and containerised frontend and backend with Docker",
+    ],
     tech: [
       "PHP",
       "Vue 3",
@@ -46,7 +59,7 @@ export const projects: Project[] = [
       "Storybook",
       "JWT",
       "SQLite",
-      "Docker"
+      "Docker",
     ],
     github: "https://github.com/efekocagozz/sportsmeet-v2",
     gradient: "from-blue-600 via-sky-500 to-cyan-400",
@@ -54,10 +67,15 @@ export const projects: Project[] = [
   },
   {
     id: "incident-management",
-    title: "Incident Management System (Team Project)",
-    description: "An incident management system for tracking and managing support tickets, built with ASP.NET Core 8 and MongoDB.",
-    longDescription:
-      "Collaborated in a team to develop an incident management system for tracking and managing support tickets. Built the application using ASP.NET Core following the MVC architectural pattern. Integrated MongoDB Atlas using the official MongoDB .NET Driver for persistent data storage. . Developed ticket management features including CRUD operations, priority levels, filtering, and dashboard statistics.",
+    title: "Incident Management System",
+    kind: "team",
+    description:
+      "Support-ticket tracking system built with ASP.NET Core MVC and MongoDB Atlas.",
+    highlights: [
+      "Built ticket management with CRUD, priority levels, filtering and a statistics dashboard",
+      "Integrated MongoDB Atlas through the official MongoDB .NET Driver",
+      "Secured accounts with BCrypt password hashing and cookie-based authentication",
+    ],
     tech: [
       "C#",
       "ASP.NET Core",
@@ -73,20 +91,18 @@ export const projects: Project[] = [
   },
   {
     id: "restaurant-ordering",
-    title: "Restaurant Ordering System (Team Project)",
-    description: "A restaurant ordering and management web application built with ASP.NET Core MVC.",
-    longDescription:
-      "Collaborated in a team to develop a restaurant ordering and management web application using ASP.NET Core MVC. Built features for order, menu, table, employee, and payment management. Implemented a layered architecture using the MVC pattern, Repository Pattern, and Service Layer to separate business logic from data access. Worked with SQL Server and Azure SQL.",
-    tech: [
-      "C#",
-      "ASP.NET Core ",
-      "SQL Server",
-      "Azure SQL",
-      "Razor Views",
-      "MVC",
+    title: "Restaurant Ordering System",
+    kind: "team",
+    description:
+      "Restaurant ordering and management application built with ASP.NET Core MVC and SQL Server.",
+    highlights: [
+      "Built order, menu, table, employee and payment management features",
+      "Applied a layered architecture (MVC, Repository pattern, Service layer) to keep business logic separate from data access",
+      "Worked with a relational SQL Server database, hosted on Azure SQL",
     ],
+    tech: ["C#", "ASP.NET Core", "SQL Server", "Azure SQL", "Razor Views", "MVC"],
     github: "https://github.com/efekocagozz/RestaurantOrderingSystem",
     gradient: "from-blue-600 via-indigo-500 to-violet-500",
     status: "production",
-  }
+  },
 ];

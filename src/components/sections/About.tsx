@@ -58,7 +58,7 @@ export default function About() {
             <div>
               <p className="section-label mb-3">Education</p>
               <p className="text-xs text-zinc-500 leading-relaxed">
-                inHolland University of Applied Sciences<br />
+                Inholland University of Applied Sciences<br />
                 BSc Information Technology — Haarlem, NL<br />
                 2024 — Present
               </p>

@@ -20,3 +20,5 @@ export const SECTION_IDS = {
   experience: "experience",
   contact: "contact",
 } as const;
+
+export const CV_PATH = "/Efe-Kodzhagioz-CV.pdf";

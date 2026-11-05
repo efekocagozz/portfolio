@@ -8,10 +8,9 @@ import { projects } from "@/data/projects";
 import { SECTION_IDS } from "@/lib/utils";
 import type { Project } from "@/types";
 
-const statusLabel: Record<Project["status"], string> = {
-  production: "Live",
-  wip: "In progress",
-  archived: "Archived",
+const kindLabel: Record<Project["kind"], string> = {
+  team: "Team project",
+  personal: "Personal project",
 };
 
 function ProjectRow({ project, index }: { project: Project; index: number }) {
@@ -40,12 +39,24 @@ function ProjectRow({ project, index }: { project: Project; index: number }) {
         <div className="space-y-2">
           <div className="flex flex-wrap items-center gap-3">
             <h3 className="text-sm font-semibold text-white">{project.title}</h3>
-            <span className="section-label text-zinc-600">{statusLabel[project.status]}</span>
+            <span className="section-label text-zinc-600">{kindLabel[project.kind]}</span>
+            {project.status === "wip" && (
+              <span className="section-label text-emerald-400/80">In progress</span>
+            )}
           </div>
 
-          <p className="text-sm text-zinc-400 leading-relaxed max-w-2xl">
-            {project.longDescription}
+          <p className="text-sm text-zinc-300 leading-relaxed max-w-2xl">
+            {project.description}
           </p>
+
+          <ul className="space-y-1.5 max-w-2xl">
+            {project.highlights.map((h) => (
+              <li key={h} className="flex items-start gap-2 text-sm text-zinc-400 leading-relaxed">
+                <span className="mt-[0.1rem] shrink-0 text-zinc-600" aria-hidden="true">—</span>
+                <span>{h}</span>
+              </li>
+            ))}
+          </ul>
 
           {/* Tech stack */}
           <div className="flex flex-wrap gap-x-3 gap-y-1 pt-1">
