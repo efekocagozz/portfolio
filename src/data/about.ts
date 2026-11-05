@@ -5,7 +5,7 @@ export const aboutMe = [
 ];
 
 export const stats = [
-  { value: "4", label: "Featured projects" },
+  { value: "5", label: "Featured projects" },
   { value: "2+", label: "Years coding" },
   { value: "15+", label: "Technologies" },
 ];
