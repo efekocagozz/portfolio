@@ -1,0 +1,2 @@
+- focus on clean code architectures easy to maintain code and stuff
+- make it focused on broader 
