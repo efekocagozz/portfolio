@@ -105,4 +105,21 @@ export const projects: Project[] = [
     gradient: "from-blue-600 via-indigo-500 to-violet-500",
     status: "production",
   },
+  {
+    id: "someren",
+    title: "Someren Camp Management",
+    kind: "team",
+    description:
+      "Management application for a student summer camp, built with ASP.NET Core MVC on an Azure SQL database.",
+    highlights: [
+      "Built CRUD management for students, lecturers, rooms and camp activities",
+      "Implemented assigning students as activity participants and lecturers as activity supervisors",
+      "Used a generic repository interface with dependency injection to keep data access separate from controllers",
+      "Wrote data access in ADO.NET with parameterised SQL queries against Azure SQL",
+    ],
+    tech: ["C#", ".NET 8", "ASP.NET Core MVC", "ADO.NET", "SQL Server", "Azure SQL", "Razor Views", "Bootstrap"],
+    github: "https://github.com/efekocagozz/Someren",
+    gradient: "from-sky-600 via-blue-500 to-indigo-500",
+    status: "production",
+  },
 ];
