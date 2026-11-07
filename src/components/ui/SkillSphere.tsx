@@ -1,14 +1,10 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-
-interface SphereItem {
-  label: string;
-  category: string;
-}
+import { useEffect, useRef, type CSSProperties } from "react";
+import type { SphereSkill } from "@/types";
 
 interface SkillSphereProps {
-  items: SphereItem[];
+  items: SphereSkill[];
   /** Category to highlight; every other label is dimmed. */
   activeCategory?: string | null;
   className?: string;
@@ -310,10 +306,13 @@ export default function SkillSphere({ items, activeCategory = null, className }:
             ref={(el) => {
               labelRefs.current[i] = el;
             }}
-            className="absolute left-0 top-0 whitespace-nowrap rounded-md border border-white/[0.08] bg-[#09090b]/80 px-2 py-1 font-mono text-[11px] tracking-wide text-zinc-300 will-change-transform transition-[color,border-color] duration-200 data-[active=true]:border-white/40 data-[active=true]:text-white"
-            style={{ opacity: 0 }}
+            className="group absolute left-0 top-0 flex flex-col items-center gap-1.5 will-change-transform"
+            style={{ opacity: 0, "--brand": brandColor(item) } as CSSProperties}
           >
-            {item.label}
+            <SkillIcon item={item} />
+            <span className="whitespace-nowrap font-mono text-[10px] tracking-wide text-zinc-500 transition-colors duration-200 group-hover:text-zinc-200 group-data-[active=true]:text-zinc-200">
+              {item.label}
+            </span>
           </span>
         ))}
       </div>
@@ -323,4 +322,39 @@ export default function SkillSphere({ items, activeCategory = null, className }:
 
 function clamp(v: number, min: number, max: number) {
   return Math.min(max, Math.max(min, v));
+}
+
+/* ── Icons ─────────────────────────────────────────────────────────────── */
+
+const ICON_TRANSITION =
+  "transition-[color,border-color,filter] duration-300 text-zinc-300 group-hover:text-[var(--brand)] group-data-[active=true]:text-[var(--brand)] group-hover:[filter:drop-shadow(0_0_10px_var(--brand))]";
+
+/** Monochrome logo that takes on its brand colour on hover / highlight. */
+function SkillIcon({ item }: { item: SphereSkill }) {
+  if (item.icon) {
+    return (
+      <svg viewBox="0 0 24 24" className={`h-6 w-6 fill-current ${ICON_TRANSITION}`} aria-hidden="true">
+        <path d={item.icon.path} />
+      </svg>
+    );
+  }
+  return (
+    <span
+      className={`flex h-6 min-w-6 items-center justify-center rounded-md border border-current px-1 font-mono text-[9px] font-semibold leading-none ${ICON_TRANSITION}`}
+    >
+      {item.mono ?? item.label.slice(0, 2)}
+    </span>
+  );
+}
+
+/**
+ * Brand colour used on hover. Very dark brand colours (e.g. pure black)
+ * would vanish on the site's background, so they fall back to white.
+ */
+function brandColor(item: SphereSkill): string {
+  const hex = (item.icon ? `#${item.icon.hex}` : item.color) ?? "#ffffff";
+  const n = parseInt(hex.slice(1), 16);
+  const [r, g, b] = [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+  const luminance = (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255;
+  return luminance < 0.25 ? "#fafafa" : hex;
 }

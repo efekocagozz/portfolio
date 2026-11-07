@@ -1,4 +1,10 @@
-import type { SkillCategory } from "@/types";
+import {
+  siApachemaven, siBootstrap, siDocker, siDotnet, siGit, siGithubactions,
+  siHtml5, siJavascript, siJsonwebtokens, siJunit5, siLinux, siMongodb,
+  siOpenapiinitiative, siOpenjdk, siPhp, siPinia, siRailway, siSpringboot,
+  siSqlite, siStorybook, siTailwindcss, siVuedotjs,
+} from "simple-icons";
+import type { SkillCategory, SphereSkill } from "@/types";
 
 export const skillCategories: SkillCategory[] = [
   {
@@ -66,40 +72,41 @@ export const skillCategories: SkillCategory[] = [
 ];
 
 /**
- * Short labels shown on the rotating skill sphere.
+ * Items shown on the rotating skill sphere.
  * `category` must match a `skillCategories[].name` so the sphere can
- * highlight a group when its column is hovered in the grid below it.
+ * highlight a group when its column is hovered in the grid next to it.
+ * Skills without a published logo get a `mono` text tile instead.
  */
-export const sphereSkills: { label: string; category: string }[] = [
-  { label: "Java", category: "Languages" },
-  { label: "C#", category: "Languages" },
-  { label: "SQL", category: "Languages" },
-  { label: "PHP", category: "Languages" },
-  { label: "JavaScript", category: "Languages" },
-  { label: "HTML/CSS", category: "Languages" },
-  { label: "Spring Boot", category: "Frameworks" },
-  { label: "ASP.NET Core", category: "Frameworks" },
-  { label: "Vue.js", category: "Frameworks" },
-  { label: "Pinia", category: "Frameworks" },
-  { label: "Tailwind", category: "Frameworks" },
-  { label: "Bootstrap", category: "Frameworks" },
-  { label: "SQL Server", category: "Databases" },
-  { label: "Azure SQL", category: "Databases" },
-  { label: "MongoDB", category: "Databases" },
-  { label: "SQLite", category: "Databases" },
-  { label: "JUnit", category: "Testing & API" },
-  { label: "Mockito", category: "Testing & API" },
-  { label: "REST", category: "Testing & API" },
-  { label: "OpenAPI", category: "Testing & API" },
-  { label: "JWT", category: "Testing & API" },
-  { label: "Storybook", category: "Testing & API" },
-  { label: "Git", category: "DevOps & Tools" },
-  { label: "Docker", category: "DevOps & Tools" },
-  { label: "GH Actions", category: "DevOps & Tools" },
-  { label: "Linux", category: "DevOps & Tools" },
-  { label: "Maven", category: "DevOps & Tools" },
-  { label: "Railway", category: "DevOps & Tools" },
-  { label: "OOP", category: "Practices" },
-  { label: "MVC", category: "Practices" },
-  { label: "Scrum", category: "Practices" },
+export const sphereSkills: SphereSkill[] = [
+  { label: "Java", category: "Languages", icon: siOpenjdk },
+  { label: "C#", category: "Languages", mono: "C#", color: "#9B4F96" },
+  { label: "SQL", category: "Languages", mono: "SQL", color: "#4479A1" },
+  { label: "PHP", category: "Languages", icon: siPhp },
+  { label: "JavaScript", category: "Languages", icon: siJavascript },
+  { label: "HTML/CSS", category: "Languages", icon: siHtml5 },
+  { label: "Spring Boot", category: "Frameworks", icon: siSpringboot },
+  { label: "ASP.NET Core", category: "Frameworks", icon: siDotnet },
+  { label: "Vue.js", category: "Frameworks", icon: siVuedotjs },
+  { label: "Pinia", category: "Frameworks", icon: siPinia },
+  { label: "Tailwind", category: "Frameworks", icon: siTailwindcss },
+  { label: "Bootstrap", category: "Frameworks", icon: siBootstrap },
+  { label: "SQL Server", category: "Databases", mono: "MS", color: "#CC2927" },
+  { label: "Azure SQL", category: "Databases", mono: "AZ", color: "#0089D6" },
+  { label: "MongoDB", category: "Databases", icon: siMongodb },
+  { label: "SQLite", category: "Databases", icon: siSqlite },
+  { label: "JUnit", category: "Testing & API", icon: siJunit5 },
+  { label: "Mockito", category: "Testing & API", mono: "Mo", color: "#7CB342" },
+  { label: "REST", category: "Testing & API", mono: "{ }" },
+  { label: "OpenAPI", category: "Testing & API", icon: siOpenapiinitiative },
+  { label: "JWT", category: "Testing & API", icon: siJsonwebtokens },
+  { label: "Storybook", category: "Testing & API", icon: siStorybook },
+  { label: "Git", category: "DevOps & Tools", icon: siGit },
+  { label: "Docker", category: "DevOps & Tools", icon: siDocker },
+  { label: "GH Actions", category: "DevOps & Tools", icon: siGithubactions },
+  { label: "Linux", category: "DevOps & Tools", icon: siLinux },
+  { label: "Maven", category: "DevOps & Tools", icon: siApachemaven },
+  { label: "Railway", category: "DevOps & Tools", icon: siRailway },
+  { label: "OOP", category: "Practices", mono: "OOP" },
+  { label: "MVC", category: "Practices", mono: "MVC" },
+  { label: "Scrum", category: "Practices", mono: "↻" },
 ];
