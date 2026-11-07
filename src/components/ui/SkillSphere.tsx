@@ -5,8 +5,6 @@ import type { SphereSkill } from "@/types";
 
 interface SkillSphereProps {
   items: SphereSkill[];
-  /** Category to highlight; every other label is dimmed. */
-  activeCategory?: string | null;
   className?: string;
 }
 
@@ -97,12 +95,10 @@ const LABEL_RADIUS = 1.08;
 
 /* ── Component ─────────────────────────────────────────────────────────── */
 
-export default function SkillSphere({ items, activeCategory = null, className }: SkillSphereProps) {
+export default function SkillSphere({ items, className }: SkillSphereProps) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const labelRefs = useRef<(HTMLSpanElement | null)[]>([]);
-  const activeRef = useRef(activeCategory);
-  activeRef.current = activeCategory;
 
   useEffect(() => {
     const wrap = wrapRef.current;
@@ -189,7 +185,6 @@ export default function SkillSphere({ items, activeCategory = null, className }:
     /* render loop */
     let raf = 0;
     let prev = performance.now();
-    let lastActive = activeRef.current;
 
     const project = (v: Vec3) => {
       const [x, y, z] = rotate(v, state.yaw, state.pitch);
@@ -212,10 +207,6 @@ export default function SkillSphere({ items, activeCategory = null, className }:
         state.yaw += state.velYaw * dt;
         state.pitch = clamp(state.pitch + state.velPitch * dt, -1.2, 1.2);
         if (Math.abs(state.velYaw) > 1e-4 || Math.abs(state.velPitch) > 1e-4) state.dirty = true;
-      }
-      if (activeRef.current !== lastActive) {
-        lastActive = activeRef.current;
-        state.dirty = true;
       }
       if (!state.dirty) return;
       state.dirty = false;
@@ -260,20 +251,17 @@ export default function SkillSphere({ items, activeCategory = null, className }:
       }
 
       /* labels */
-      const active = activeRef.current;
       anchors.forEach((anchor, i) => {
         const el = labelRefs.current[i];
         if (!el) return;
         const p = project(anchor);
         const front = (p.z + 1) / 2; // 0 back … 1 front
-        const inGroup = !active || items[i].category === active;
-        const opacity = (0.12 + front * 0.88) * (inGroup ? 1 : 0.18);
+        const opacity = 0.12 + front * 0.88;
         const scale = (0.7 + front * 0.4) * p.s * 0.82;
         el.style.transform = `translate3d(${half + p.x * radius * p.s}px, ${half + p.y * radius * p.s}px, 0) translate(-50%, -50%) scale(${scale.toFixed(3)})`;
         el.style.opacity = opacity.toFixed(3);
         el.style.zIndex = String(Math.round(front * 100));
         el.style.filter = front < 0.35 ? `blur(${((0.35 - front) * 3).toFixed(2)}px)` : "none";
-        el.dataset.active = active && inGroup ? "true" : "false";
       });
     };
     raf = requestAnimationFrame(frame);
@@ -310,7 +298,7 @@ export default function SkillSphere({ items, activeCategory = null, className }:
             style={{ opacity: 0, "--brand": brandColor(item) } as CSSProperties}
           >
             <SkillIcon item={item} />
-            <span className="whitespace-nowrap font-mono text-[10px] tracking-wide text-zinc-500 transition-colors duration-200 group-hover:text-zinc-200 group-data-[active=true]:text-zinc-200">
+            <span className="whitespace-nowrap font-mono text-[10px] tracking-wide text-zinc-500 transition-colors duration-200 group-hover:text-zinc-200">
               {item.label}
             </span>
           </span>
@@ -327,9 +315,9 @@ function clamp(v: number, min: number, max: number) {
 /* ── Icons ─────────────────────────────────────────────────────────────── */
 
 const ICON_TRANSITION =
-  "transition-[color,border-color,filter] duration-300 text-zinc-300 group-hover:text-[var(--brand)] group-data-[active=true]:text-[var(--brand)] group-hover:[filter:drop-shadow(0_0_10px_var(--brand))]";
+  "transition-[color,border-color,filter] duration-300 text-zinc-300 group-hover:text-[var(--brand)] group-hover:[filter:drop-shadow(0_0_10px_var(--brand))]";
 
-/** Monochrome logo that takes on its brand colour on hover / highlight. */
+/** Monochrome logo that takes on its brand colour on hover. */
 function SkillIcon({ item }: { item: SphereSkill }) {
   if (item.icon) {
     return (

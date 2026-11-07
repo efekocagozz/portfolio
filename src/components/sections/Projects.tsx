@@ -1,8 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
 import FadeInView from "@/components/animations/FadeInView";
 import { projects } from "@/data/projects";
 import { SECTION_IDS } from "@/lib/utils";
@@ -13,66 +10,42 @@ const kindLabel: Record<Project["kind"], string> = {
   personal: "Personal project",
 };
 
-function ProjectRow({ project, index }: { project: Project; index: number }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, amount: 0.2 });
-
+function ProjectCard({ project, index }: { project: Project; index: number }) {
   const num = String(index + 1).padStart(2, "0");
 
   return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0 }}
-      animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-      transition={{ duration: 0.4, delay: index * 0.08 }}
-      className="group"
-    >
-      <div className="grid grid-cols-[48px_1fr] md:grid-cols-[48px_1fr_auto] gap-x-6 gap-y-3 py-7 border-b border-white/[0.07] hover:bg-white/[0.02] transition-colors duration-200 px-2 rounded-sm -mx-2">
-        {/* Index number */}
-        <div className="pt-0.5">
+    <FadeInView delay={index * 0.08} direction="up" className="h-full">
+      <article className="group h-full flex flex-col rounded-xl border border-white/[0.07] bg-white/[0.015] p-6 md:p-7 hover:border-white/[0.14] hover:bg-white/[0.03] transition-colors duration-200">
+        {/* Header: number, title, label */}
+        <div className="flex items-baseline gap-3">
           <span className="font-mono text-xs text-zinc-600 group-hover:text-zinc-400 transition-colors duration-200">
             {num}
           </span>
-        </div>
-
-        {/* Main content */}
-        <div className="space-y-2">
-          <div className="flex flex-wrap items-center gap-3">
-            <h3 className="text-sm font-semibold text-white">{project.title}</h3>
+          <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+            <h3 className="text-base font-semibold text-white">{project.title}</h3>
             <span className="section-label text-zinc-600">{kindLabel[project.kind]}</span>
-            {project.status === "wip" && (
-              <span className="section-label text-emerald-400/80">In progress</span>
-            )}
-          </div>
-
-          <p className="text-sm text-zinc-300 leading-relaxed max-w-2xl">
-            {project.description}
-          </p>
-
-          <ul className="space-y-1.5 max-w-2xl">
-            {project.highlights.map((h) => (
-              <li key={h} className="flex items-start gap-2 text-sm text-zinc-400 leading-relaxed">
-                <span className="mt-[0.1rem] shrink-0 text-zinc-600" aria-hidden="true">—</span>
-                <span>{h}</span>
-              </li>
-            ))}
-          </ul>
-
-          {/* Tech stack */}
-          <div className="flex flex-wrap gap-x-3 gap-y-1 pt-1">
-            {project.tech.map((t, i) => (
-              <span key={t} className="text-xs text-zinc-600">
-                {t}
-                {i < project.tech.length - 1 && (
-                  <span className="ml-3 text-zinc-800" aria-hidden="true">·</span>
-                )}
-              </span>
-            ))}
           </div>
         </div>
 
-        {/* Links */}
-        <div className="col-start-2 md:col-start-3 flex items-start gap-4 pt-0.5">
+        <p className="mt-4 text-sm text-zinc-300 leading-relaxed">{project.description}</p>
+
+        <ul className="mt-4 space-y-1.5">
+          {project.highlights.map((h) => (
+            <li key={h} className="flex items-start gap-2 text-sm text-zinc-400 leading-relaxed">
+              <span className="mt-[0.1rem] shrink-0 text-zinc-600" aria-hidden="true">—</span>
+              <span>{h}</span>
+            </li>
+          ))}
+        </ul>
+
+        {/* What I learned */}
+        <div className="mt-5 border-t border-white/[0.07] pt-4">
+          <p className="section-label mb-2">What I learned</p>
+          <p className="text-sm text-zinc-400 leading-relaxed">{project.learned}</p>
+        </div>
+
+        {/* Links — pinned to the bottom so cards line up */}
+        <div className="mt-auto pt-6 flex items-center gap-4">
           <a
             href={project.github}
             target="_blank"
@@ -96,8 +69,8 @@ function ProjectRow({ project, index }: { project: Project; index: number }) {
             </a>
           )}
         </div>
-      </div>
-    </motion.div>
+      </article>
+    </FadeInView>
   );
 }
 
@@ -106,7 +79,7 @@ export default function Projects() {
     <section
       id={SECTION_IDS.projects}
       className="section-padding max-w-[1200px] mx-auto"
-      aria-label="Featured projects"
+      aria-label="Projects"
     >
       {/* Section label */}
       <FadeInView className="flex items-center gap-4 mb-12">
@@ -114,24 +87,16 @@ export default function Projects() {
         <div className="flex-1 h-px bg-white/[0.07]" aria-hidden="true" />
       </FadeInView>
 
-      {/* Header row */}
-      <FadeInView className="mb-2">
-        <div className="grid grid-cols-[48px_1fr] md:grid-cols-[48px_1fr_auto] gap-x-6 px-2">
-          <div />
-          <div className="flex gap-6">
-            <span className="section-label">Project</span>
-          </div>
-          <div className="hidden md:block">
-            <span className="section-label">Links</span>
-          </div>
-        </div>
-        <div className="h-px bg-white/[0.07] mt-3" />
+      <FadeInView className="mb-10">
+        <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight">Projects</h2>
+        <p className="mt-3 text-sm text-zinc-400">
+          Things I&apos;ve built, and what broke along the way.
+        </p>
       </FadeInView>
 
-      {/* Project rows */}
-      <div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {projects.map((project, i) => (
-          <ProjectRow key={project.id} project={project} index={i} />
+          <ProjectCard key={project.id} project={project} index={i} />
         ))}
       </div>
 

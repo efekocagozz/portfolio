@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { SECTION_IDS, CV_PATH } from "@/lib/utils";
+import { SECTION_IDS } from "@/lib/utils";
 
 const HEADLINE = ["Efe", "Kodzhagioz"];
 
@@ -52,28 +52,35 @@ export default function Hero() {
           <div className="pt-2 flex flex-col items-center lg:items-start">
             {/* Role label */}
             <motion.p
-              className="section-label mb-6"
+              className="section-label mb-6 !leading-relaxed"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.4, delay: 0.1 }}
             >
-              Software Engineering Student · Inholland
+              IT student &amp; developer · Inholland · Based in the Netherlands
             </motion.p>
 
-            {/* Giant headline */}
+            {/* Giant name */}
             <h1 className="text-[clamp(2.75rem,8vw,7.5rem)] sm:text-[clamp(3.5rem,10vw,7.5rem)] font-bold tracking-tight text-white leading-[0.92]">
               <WordReveal words={HEADLINE} delay={0.2} />
             </h1>
 
+            {/* Headline */}
             <motion.p
-              className="mt-6 text-sm text-zinc-400 leading-relaxed max-w-md mx-auto lg:mx-0"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
+              className="mt-8 text-xl md:text-2xl font-semibold tracking-tight text-zinc-200"
+              {...fadeUp(0.4)}
             >
-              I build backend-focused web applications with Java &amp; Spring Boot and
-              C# &amp; ASP.NET Core: REST APIs, authentication, data models and tests.
-              Currently looking for a software engineering internship.
+              <span className="block sm:inline">Building things.</span>{" "}
+              <span className="block sm:inline text-zinc-500">Exploring what&apos;s next.</span>
+            </motion.p>
+
+            <motion.p
+              className="mt-4 text-sm text-zinc-400 leading-relaxed max-w-md mx-auto lg:mx-0"
+              {...fadeUp(0.5)}
+            >
+              I&apos;ve built several frontend and backend projects in Agile teams at school.
+              Now I&apos;m learning the fundamentals of cybersecurity, cloud and AI to prepare
+              for a specialization in the industry.
             </motion.p>
           </div>
 
@@ -99,32 +106,15 @@ export default function Hero() {
                 onClick={() => scrollTo(SECTION_IDS.projects)}
                 className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-white text-zinc-950 text-xs font-semibold hover:bg-zinc-100 transition-colors duration-200"
               >
-                View Projects
+                Explore my work
                 <span aria-hidden="true">→</span>
               </button>
-              <div className="grid grid-cols-2 gap-2">
-                <a
-                  href={CV_PATH}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-lg border border-white/20 text-zinc-300 text-xs font-medium hover:text-white hover:border-white/40 transition-all duration-200"
-                >
-                  Download CV
-                  <span aria-hidden="true">↓</span>
-                </a>
-                <button
-                  onClick={() => scrollTo(SECTION_IDS.contact)}
-                  className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg border border-white/20 text-zinc-300 text-xs font-medium hover:text-white hover:border-white/40 transition-all duration-200"
-                >
-                  Get in Touch
-                </button>
-              </div>
-            </div>
-
-            {/* Availability badge */}
-            <div className="flex items-center justify-center lg:justify-start gap-2 px-1">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" aria-hidden="true" />
-              <span className="section-label text-zinc-500">Open to internships</span>
+              <button
+                onClick={() => scrollTo(SECTION_IDS.contact)}
+                className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg border border-white/20 text-zinc-300 text-xs font-medium hover:text-white hover:border-white/40 transition-all duration-200"
+              >
+                Get in touch
+              </button>
             </div>
           </motion.div>
         </div>

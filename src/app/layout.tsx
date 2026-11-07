@@ -14,22 +14,21 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
+const TITLE = "Efe Kodzhagioz — IT Student & Developer";
+const SHARE_DESCRIPTION =
+  "IT student and developer at Inholland, exploring backend, cybersecurity, cloud and AI.";
+
 export const metadata: Metadata = {
-  title: "Efe Kodzhagioz — Software Engineering Student",
+  title: TITLE,
   description:
-    "IT student at Inholland University of Applied Sciences focused on software engineering. Building REST APIs and full-stack applications with Java, Spring Boot, C#, ASP.NET Core, Vue.js and SQL. Open to software engineering internships.",
+    "IT student and developer at Inholland. I build backend-focused projects and I'm learning the fundamentals of cybersecurity, cloud and AI.",
   keywords: [
-    "software engineer",
-    "backend developer",
-    "Java",
-    "Spring Boot",
-    "SQL",
-    "MongoDB",
-    "C#",
-    "ASP.NET Core",
-    "software engineering",
-    "internship",
     "IT student",
+    "developer",
+    "backend",
+    "cybersecurity",
+    "cloud",
+    "AI",
     "Netherlands",
     "portfolio",
   ],
@@ -40,16 +39,14 @@ export const metadata: Metadata = {
     apple: "/favicon.png",
   },
   openGraph: {
-    title: "Efe Kodzhagioz — Software Engineering Student",
-    description:
-      "IT student at Inholland focused on software engineering. Open to internships.",
+    title: TITLE,
+    description: SHARE_DESCRIPTION,
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Efe Kodzhagioz — Software Engineering Student",
-    description:
-      "IT student at Inholland focused on software engineering. Open to internships.",
+    title: TITLE,
+    description: SHARE_DESCRIPTION,
   },
 };
 
