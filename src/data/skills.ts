@@ -64,3 +64,42 @@ export const skillCategories: SkillCategory[] = [
     ],
   },
 ];
+
+/**
+ * Short labels shown on the rotating skill sphere.
+ * `category` must match a `skillCategories[].name` so the sphere can
+ * highlight a group when its column is hovered in the grid below it.
+ */
+export const sphereSkills: { label: string; category: string }[] = [
+  { label: "Java", category: "Languages" },
+  { label: "C#", category: "Languages" },
+  { label: "SQL", category: "Languages" },
+  { label: "PHP", category: "Languages" },
+  { label: "JavaScript", category: "Languages" },
+  { label: "HTML/CSS", category: "Languages" },
+  { label: "Spring Boot", category: "Frameworks" },
+  { label: "ASP.NET Core", category: "Frameworks" },
+  { label: "Vue.js", category: "Frameworks" },
+  { label: "Pinia", category: "Frameworks" },
+  { label: "Tailwind", category: "Frameworks" },
+  { label: "Bootstrap", category: "Frameworks" },
+  { label: "SQL Server", category: "Databases" },
+  { label: "Azure SQL", category: "Databases" },
+  { label: "MongoDB", category: "Databases" },
+  { label: "SQLite", category: "Databases" },
+  { label: "JUnit", category: "Testing & API" },
+  { label: "Mockito", category: "Testing & API" },
+  { label: "REST", category: "Testing & API" },
+  { label: "OpenAPI", category: "Testing & API" },
+  { label: "JWT", category: "Testing & API" },
+  { label: "Storybook", category: "Testing & API" },
+  { label: "Git", category: "DevOps & Tools" },
+  { label: "Docker", category: "DevOps & Tools" },
+  { label: "GH Actions", category: "DevOps & Tools" },
+  { label: "Linux", category: "DevOps & Tools" },
+  { label: "Maven", category: "DevOps & Tools" },
+  { label: "Railway", category: "DevOps & Tools" },
+  { label: "OOP", category: "Practices" },
+  { label: "MVC", category: "Practices" },
+  { label: "Scrum", category: "Practices" },
+];
