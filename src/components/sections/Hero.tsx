@@ -70,17 +70,17 @@ export default function Hero() {
               className="mt-8 text-xl md:text-2xl font-semibold tracking-tight text-zinc-200"
               {...fadeUp(0.4)}
             >
-              <span className="block sm:inline">Building things.</span>{" "}
-              <span className="block sm:inline text-zinc-500">Exploring what&apos;s next.</span>
+              <span className="block sm:inline">Curious about technology.</span>{" "}
+              <span className="block sm:inline text-zinc-500">Driven by building.</span>
             </motion.p>
 
             <motion.p
               className="mt-4 text-sm text-zinc-400 leading-relaxed max-w-md mx-auto lg:mx-0"
               {...fadeUp(0.5)}
             >
-              I&apos;ve built several frontend and backend projects in Agile teams at school.
-              Now I&apos;m learning the fundamentals of cybersecurity, cloud and AI to prepare
-              for a specialization in the industry.
+              I enjoy taking ideas and turning them into working software. From developing
+              applications to exploring cloud infrastructure, AI and cybersecurity, I&apos;m
+              always looking to understand how technology works and what I can build with it.
             </motion.p>
           </div>
 
