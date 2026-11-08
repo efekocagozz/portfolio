@@ -3,7 +3,7 @@
 import FadeInView from "@/components/animations/FadeInView";
 import { SECTION_IDS } from "@/lib/utils";
 
-import { aboutMe, stats } from "@/data/about";
+import { aboutMe, education } from "@/data/about";
 
 export default function About() {
   return (
@@ -18,52 +18,23 @@ export default function About() {
         <div className="flex-1 h-px bg-white/[0.07]" aria-hidden="true" />
       </FadeInView>
 
-      <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-12 lg:gap-20">
-        {/* Left — bio */}
-        <div>
-          <FadeInView>
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 tracking-tight">
-              Who I Am
-            </h2>
-          </FadeInView>
+      <div className="max-w-2xl">
+        <FadeInView>
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 tracking-tight">
+            A bit about me
+          </h2>
+        </FadeInView>
 
-          <div className="space-y-4">
-            {aboutMe.map((paragraph, idx) => (
-              <FadeInView key={idx} delay={0.05 + idx * 0.05}>
-                <p className="text-zinc-400 leading-relaxed text-sm">
-                  {paragraph}
-                </p>
-              </FadeInView>
-            ))}
-          </div>
-
-          {/* Inline stats */}
-          <FadeInView delay={0.2} className="mt-10 flex items-center gap-8 border-t border-white/[0.07] pt-6">
-            {stats.map((s, i) => (
-              <div key={s.label}>
-                <p className="text-white font-bold text-lg">{s.value}</p>
-                <p className="section-label mt-0.5">{s.label}</p>
-                {i < stats.length - 1 && (
-                  <span className="sr-only">/</span>
-                )}
-              </div>
-            ))}
-          </FadeInView>
+        <div className="space-y-4">
+          {aboutMe.map((paragraph, idx) => (
+            <FadeInView key={idx} delay={0.05 + idx * 0.05}>
+              <p className="text-zinc-400 leading-relaxed text-sm">{paragraph}</p>
+            </FadeInView>
+          ))}
         </div>
 
-        {/* Right — Education */}
-        <FadeInView direction="left" delay={0.1}>
-          <div>
-            {/* Education */}
-            <div>
-              <p className="section-label mb-3">Education</p>
-              <p className="text-xs text-zinc-500 leading-relaxed">
-                Inholland University of Applied Sciences<br />
-                BSc Information Technology — Haarlem, NL<br />
-                2024 — Present
-              </p>
-            </div>
-          </div>
+        <FadeInView delay={0.2} className="mt-10 border-t border-white/[0.07] pt-6">
+          <p className="text-xs text-zinc-500 leading-relaxed">{education}</p>
         </FadeInView>
       </div>
     </section>

@@ -1,11 +1,8 @@
 export const aboutMe = [
-  "I'm a software engineering-focused Information Technology student at Inholland University of Applied Sciences in Haarlem. I enjoy the backend side of things most: designing REST APIs, modelling data, and making sure an application is secure and well-tested.",
-  "Through team and personal projects I've built full-stack applications with Java & Spring Boot, C# & ASP.NET Core, PHP and Vue.js, backed by SQL Server, MongoDB and SQLite. I'm used to working in Scrum teams with Git and GitHub, writing tests, and shipping with Docker.",
-  "I'm currently looking for a software engineering internship where I can contribute to a real codebase, learn from experienced engineers and grow quickly. Outside of tech, working in hospitality and as a DJ taught me to communicate clearly, adapt fast and stay calm under pressure.",
+  "My method is simple: pick something I don't know how to do, start building, fail a few times, and fix it until it works. So far it hasn't let me down.",
+  "Build it, break it, fix it, understand it. Every project has taught me more through what went wrong than what went right.",
+  "Hospitality and DJing taught me to stay calm and communicate when things don't go to plan. Handy skills for engineering as well.",
 ];
 
-export const stats = [
-  { value: "5", label: "Featured projects" },
-  { value: "2+", label: "Years coding" },
-  { value: "15+", label: "Technologies" },
-];
+export const education =
+  "Inholland University of Applied Sciences · BSc Information Technology · Haarlem, NL · 2024 – present";

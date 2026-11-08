@@ -52,7 +52,7 @@ export default function Contact() {
     >
       {/* Section label */}
       <FadeInView className="flex items-center gap-4 mb-12">
-        <span className="section-label">05 — Contact</span>
+        <span className="section-label">04 — Contact</span>
         <div className="flex-1 h-px bg-white/[0.07]" aria-hidden="true" />
       </FadeInView>
 
@@ -60,12 +60,12 @@ export default function Contact() {
         {/* Left — heading + social links */}
         <FadeInView>
           <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight mb-4">
-            Let&apos;s Work Together
+            Say hi
           </h2>
           <p className="text-sm text-zinc-400 leading-relaxed mb-10 max-w-sm">
-            Looking for a software engineering internship. Based in the
-            Netherlands, studying in Haarlem, and open to on-site, hybrid or
-            remote roles. The quickest way to reach me is by email.
+            Got a project, a question, or just want to talk tech? Based in the
+            Netherlands, studying in Haarlem. The quickest way to reach me is by
+            email.
           </p>
 
           {/* Social links */}
