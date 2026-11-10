@@ -8,8 +8,8 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
-    font-size: 9.3pt;
-    line-height: 1.36;
+    font-size: 9.1pt;
+    line-height: 1.32;
     color: #1f2329;
   }
   a { color: inherit; text-decoration: none; }
@@ -21,7 +21,7 @@
   h2 {
     font-size: 8.6pt; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em;
     color: #0b0d10; border-bottom: 0.8pt solid #d6d9de; padding-bottom: 2.5pt;
-    margin: 9pt 0 5pt;
+    margin: 8pt 0 4.5pt;
   }
   p.summary { color: #2b3038; }
   .entry { margin-bottom: 5.5pt; break-inside: avoid; }
@@ -42,7 +42,7 @@
 <body>
 <header>
   <h1>Efe Kodzhagioz</h1>
-  <div class="role">Software Engineering Student — seeking a software engineering internship</div>
+  <div class="role">IT Student &amp; Developer — Inholland University of Applied Sciences</div>
   <div class="contact">
     <span>Netherlands</span>
     <span><a href="mailto:kocagozefe@gmail.com">kocagozefe@gmail.com</a></span>
@@ -54,11 +54,10 @@
 <section>
   <h2>Profile</h2>
   <p class="summary">
-    IT student at Inholland University of Applied Sciences focused on backend and full-stack software
-    engineering. I build REST APIs and web applications with Java &amp; Spring Boot and C# &amp; ASP.NET Core,
-    secure them with JWT and role-based access, and test them with JUnit and Mockito. Used to working in
-    Scrum teams with Git and GitHub. Looking for an internship where I can contribute to a real codebase
-    and learn from experienced engineers.
+    IT student and developer who enjoys turning ideas into working software. I've built several frontend
+    and backend projects in Agile teams, mostly on the backend: REST APIs, authentication, data models and
+    tests. Build it, break it, fix it, understand it. Now I'm learning the fundamentals of cybersecurity,
+    cloud and AI to prepare for a specialization in the industry.
   </p>
 </section>
 
@@ -66,7 +65,7 @@
   <h2>Education</h2>
   <div class="entry">
     <div class="entry-head">
-      <div class="entry-title">BSc Information Technology <span class="tag">— Software Engineering</span></div>
+      <div class="entry-title">BSc Information Technology</div>
       <div class="entry-meta">2024 — Present</div>
     </div>
     <div class="entry-sub">Inholland University of Applied Sciences, Haarlem</div>
@@ -84,13 +83,12 @@
       <div class="entry-title">Banking Application <span class="tag">· Team of 4</span></div>
       <div class="entry-meta"><a href="https://github.com/RashidIsmayilzada/Banking-App">github.com/RashidIsmayilzada/Banking-App</a></div>
     </div>
+    <div class="entry-sub">A banking app where customers manage accounts and admins keep everything in check.</div>
     <ul>
-      <li>Designed and implemented the REST endpoints behind the admin panel of a full-stack banking app (Spring Boot API, Vue.js 3 frontend).</li>
-      <li>Implemented authentication and role-based authorization with Spring Security and JSON Web Tokens.</li>
-      <li>Documented the API with OpenAPI / Swagger UI; added rate limiting with Bucket4j.</li>
-      <li>Wrote unit and functional tests with JUnit, Mockito and AssertJ; containerised with Docker and deployed on Railway.</li>
+      <li>Built the REST API behind the admin panel, with login and role-based access (Spring Security, JWT) so every user only sees what they should.</li>
+      <li>Added rate limiting, OpenAPI docs and automated tests (JUnit, Mockito, H2); shipped with CI/CD and Docker.</li>
     </ul>
-    <div class="stack">Java 21 · Spring Boot · Spring Security · Spring Data JPA · Hibernate · H2 · Vue.js 3 · JWT · Maven · Docker</div>
+    <div class="stack">Java · Spring Boot · Spring Security · Spring Data JPA · H2 · Vue.js 3 · JWT · Maven · Docker</div>
   </div>
 
   <div class="entry">
@@ -98,12 +96,12 @@
       <div class="entry-title">SportsMeet <span class="tag">· Personal project</span></div>
       <div class="entry-meta"><a href="https://github.com/efekocagozz/sportsmeet-v2">github.com/efekocagozz/sportsmeet-v2</a></div>
     </div>
+    <div class="entry-sub">Finding and joining local sports events; built solo, from the database to the interface.</div>
     <ul>
-      <li>Built a web app for creating and joining local sports events, end to end: database, API and UI.</li>
-      <li>Wrote a custom PHP REST API with JWT-based authentication and authorization on top of SQLite.</li>
-      <li>Built the frontend with Vue 3, Pinia and Tailwind CSS, documented components in Storybook, and containerised both tiers with Docker.</li>
+      <li>Built a REST API in PHP with JWT login, admin and user roles, and an approval flow for join requests, structured into controllers, services and repositories.</li>
+      <li>Added notifications and live weather per event; built the frontend from reusable components documented in Storybook, run with Docker Compose.</li>
     </ul>
-    <div class="stack">PHP · Vue 3 · Vite · Pinia · Tailwind CSS · Storybook · SQLite · JWT · Docker</div>
+    <div class="stack">PHP · Vue 3 · Pinia · Tailwind CSS · Storybook · SQLite · JWT · Docker Compose</div>
   </div>
 
   <div class="entry">
@@ -111,11 +109,12 @@
       <div class="entry-title">Incident Management System <span class="tag">· Team project</span></div>
       <div class="entry-meta"><a href="https://github.com/DarlingtonJones24/NOSQLDatabaseProject">github.com/DarlingtonJones24/NOSQLDatabaseProject</a></div>
     </div>
+    <div class="entry-sub">A service-desk tool for reporting and resolving IT incidents. Built most of it, mainly the backend.</div>
     <ul>
-      <li>Built a support-ticket system in ASP.NET Core MVC with CRUD, priority levels, filtering and a statistics dashboard.</li>
-      <li>Modelled ticket data in MongoDB Atlas via the official .NET driver; secured accounts with BCrypt and cookie authentication.</li>
+      <li>Built ticket handling (priorities, statuses, filtering) and a Swagger-documented REST API; secured accounts with hashed passwords, cookie login and roles.</li>
+      <li>Modelled tickets as MongoDB documents with embedded comments and employee info; built the statistics dashboard with aggregations.</li>
     </ul>
-    <div class="stack">C# · ASP.NET Core MVC · MongoDB Atlas · Razor · BCrypt</div>
+    <div class="stack">C# · ASP.NET Core MVC · MongoDB · Razor · BCrypt</div>
   </div>
 
   <div class="entry">
@@ -123,9 +122,10 @@
       <div class="entry-title">Restaurant Ordering System <span class="tag">· Team project</span></div>
       <div class="entry-meta"><a href="https://github.com/efekocagozz/RestaurantOrderingSystem">github.com/efekocagozz/RestaurantOrderingSystem</a></div>
     </div>
+    <div class="entry-sub">Follows an order from the table to the kitchen to the bill. Built the employee side.</div>
     <ul>
-      <li>Built order, menu, table, employee and payment management for a restaurant in ASP.NET Core MVC.</li>
-      <li>Applied a layered architecture (MVC, Repository pattern, Service layer) on SQL Server, hosted on Azure SQL.</li>
+      <li>Built employee management with four roles (waiter, bartender, chef, manager) and a hashed-password login that sends each role to its own dashboard.</li>
+      <li>Separated logic from data access with controllers, services and repositories, using plain, injection-safe SQL on SQL Server (Azure).</li>
     </ul>
     <div class="stack">C# · ASP.NET Core MVC · SQL Server · Azure SQL · Razor</div>
   </div>
@@ -150,7 +150,7 @@
       <div class="entry-title">Hospitality &amp; DJ work</div>
     </div>
     <ul>
-      <li>Kept day-to-day bar operations running smoothly in a fast-paced environment and performed as a DJ at events, building clear communication and composure under pressure.</li>
+      <li>Bar work and DJing at events: staying calm and communicating when things don't go to plan.</li>
     </ul>
   </div>
 </section>
