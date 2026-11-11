@@ -2,6 +2,22 @@ import type { Project } from "@/types";
 
 export const projects: Project[] = [
   {
+    id: "solana-flash-arb",
+    title: "Solana Flash-Loan Arbitrage Bot",
+    kind: "personal",
+    description:
+      "A bot that hunts for price differences between Solana exchanges and trades them with borrowed money: borrow, swap twice and repay, all in one transaction that undoes itself if it wouldn't make a profit.",
+    highlights: [
+      "Quoted SOL → token → SOL round trips through the Jupiter aggregator, executed inside a MarginFi flash loan, so no starting capital is needed",
+      "Wrote a search algorithm (coarse grid + golden-section search) that finds the most profitable trade size in about 9 quotes instead of dozens",
+      "Only sends trades that are profitable even at the worst allowed price, and squeezes two swaps plus the loan into Solana's 1232-byte transaction limit",
+      "Added a shared rate limiter, retries with backoff, unit tests and CI, and kept it in simulation mode by default",
+    ],
+    learned:
+      "How blockchain transactions work under the hood, why atomic transactions make risky ideas safe to try, and how to split a project into pure, testable logic and I/O at the edges.",
+    github: "https://github.com/efekocagozz/solana-flash-arb",
+  },
+  {
     id: "banking-app",
     title: "Banking Application",
     kind: "team",
