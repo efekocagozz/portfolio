@@ -2,7 +2,7 @@ import {
   siApachemaven, siBootstrap, siDocker, siDotnet, siGit, siGithubactions,
   siHtml5, siJavascript, siJsonwebtokens, siJunit5, siLinux, siMongodb,
   siOpenapiinitiative, siOpenjdk, siPhp, siPinia, siRailway, siSpringboot,
-  siSqlite, siStorybook, siTailwindcss, siVuedotjs,
+  siSolana, siSqlite, siStorybook, siTailwindcss, siTypescript, siVuedotjs,
 } from "simple-icons";
 import type { SphereSkill } from "@/types";
 
@@ -16,6 +16,7 @@ export const sphereSkills: SphereSkill[] = [
   { label: "SQL", mono: "SQL", color: "#4479A1" },
   { label: "PHP", icon: siPhp },
   { label: "JavaScript", icon: siJavascript },
+  { label: "TypeScript", icon: siTypescript },
   { label: "HTML/CSS", icon: siHtml5 },
   { label: "Spring Boot", icon: siSpringboot },
   { label: "ASP.NET Core", icon: siDotnet },
@@ -39,6 +40,7 @@ export const sphereSkills: SphereSkill[] = [
   { label: "Linux", icon: siLinux },
   { label: "Maven", icon: siApachemaven },
   { label: "Railway", icon: siRailway },
+  { label: "Solana", icon: siSolana },
   { label: "OOP", mono: "OOP" },
   { label: "MVC", mono: "MVC" },
   { label: "Scrum", mono: "↻" },
